@@ -1,0 +1,353 @@
+/* 
+  styleReview.css
+  This file contains the styling for the review page (review.html).
+  It replaces the inline <style> block from the original code.
+*/
+
+/* Global reset and font styling */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+  }
+  /* styleReview.css (example) */
+/* Example: snippet star classes */
+  .star {
+    font-size: 2rem; /* or sesuai selera */
+    cursor: pointer;
+  }
+
+  /* Color classes */
+  .one {
+    color: rgb(255, 0, 0);       /* Red */
+  }
+  .two {
+    color: rgb(255, 106, 0);     /* Orange */
+  }
+  .three {
+    color: rgb(251, 255, 120);   /* Light Yellow */
+  }
+  .four {
+    color: rgb(255, 255, 0);     /* Yellow */
+  }
+  .five {
+    color: rgb(24, 159, 14);     /* Green */
+  }
+
+  /* Container for the custom card with darker border & shadow */
+  .card-custom {
+    width: 300px;
+    margin: 15px;
+    border: 1px solid #888; /* darker border */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    background-color: #fff; /* or any color you want */
+  }
+
+  /* Top colored section */
+  .card-top {
+    background-color: #ffa62b; /* example color for top part */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+  }
+
+  /* Bottom white section */
+  .card-bottom {
+    background-color: #fff;
+    padding: 15px;
+  }
+
+  /* Profile image inside the card */
+  .profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+  }
+  .profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* For the user info inside top section */
+  .left-side {
+    display: flex;
+    align-items: center;
+  }
+  .user-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .user-info strong {
+    font-weight: 600;
+  }
+  .user-info span {
+    font-size: 0.85rem;
+    color: #555;
+  }
+
+  /* Right side (stars) in top section */
+  .right-side {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Feedback note styling */
+  .feedback-note {
+    font-style: italic;
+    color: #777;
+  }
+
+  /* Additional responsiveness if needed */
+  @media (max-width: 768px) {
+    .card-custom {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+  
+  /* Background container */
+  .background_home {
+    margin-top: -2vh;
+    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0));
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Video background styling */
+  .videobg {
+    position: absolute;
+    object-fit: contain;
+    bottom: 0;
+    z-index: -1;
+  }
+  
+  /* Header row (text over video) */
+  .header-row {
+    flex-basis: 50%;
+  }
+  #header-title {
+    font-size: 100px;
+  }
+  .review-header {
+    color: white;
+  }
+  button {
+    width: 180px;
+    color: #000;
+    font-size: 12px;
+    padding: 12px 0;
+    background: #fff;
+    border: 0;
+    border-radius: 20px;
+    outline: none;
+    margin-top: 30px;
+  }
+  
+  /* The "Give Review" button container */
+  #btn-div {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Testimonials section */
+  #testimonials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  /* Heading in the testimonials section */
+  .testimonial-heading {
+    letter-spacing: 1px;
+    margin: 30px 0px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .testimonial-heading h1 {
+    font-size: 2.2rem;
+    font-weight: 500;
+    background-color: #202020;
+    color: #ffffff;
+    padding: 10px 20px;
+  }
+  .testimonial-heading span {
+    font-size: 1.3rem;
+    color: #252525;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  
+  /* Container for the testimonial boxes */
+  .testimonial-box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  /* Testimonial box (card) */
+  .testimonial-box {
+    width: 320px; /* Adjust the width so that 3 cards can fit on wider screens */
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px;
+    cursor: pointer;
+    border-radius: 15px; /* Slightly rounded corners */
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover effect for the testimonial box */
+  .testimonial-box:hover {
+    transform: translateY(-10px);
+  }
+  
+  /* The top section of the box (profile and rating) */
+  .box-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Profile section inside the box */
+  .profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Profile image styling */
+  .profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+  }
+  .profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  /* User name and date styling */
+  .name-user {
+    display: flex;
+    flex-direction: column;
+  }
+  .name-user strong {
+    color: #3d3d3d;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+  }
+  .name-user span {
+    color: #979797;
+    font-size: 0.8rem;
+  }
+  
+  /* Rating stars (color) */
+  .reviews {
+    color: #f9d71c;
+  }
+  
+  /* Client comment section */
+  .client-comment p {
+    font-size: 0.9rem;
+    color: #4b4b4b;
+    margin-bottom: 5px;
+  }
+  
+  /* Additional note under the comment */
+  .feedback-note {
+    font-style: italic;
+    color: #666;
+  }
+  
+  /* Responsive adjustments */
+  @media(max-width: 1060px) {
+    .testimonial-box {
+      width: 45%;
+      padding: 10px;
+    }
+  }
+  @media(max-width: 790px) {
+    .testimonial-box {
+      width: 100%;
+    }
+    .testimonial-heading h1 {
+      font-size: 1.4rem;
+    }
+  }
+  @media(max-width: 340px) {
+    .box-top {
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .reviews {
+      margin-top: 10px;
+    }
+  }
+  
+  /* Text selection color */
+  ::selection {
+    color: #ffffff;
+    background-color: #252525;
+  }
+  
+  /* Rating stars in the modal (rate class) */
+  .rate {
+    float: left;
+    text-align: center;
+    font-size: 2em;
+  }
+  .rate:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+  }
+  .rate:not(:checked) > label {
+    float: right;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    color: #ccc;
+  }
+  .rate > input:checked ~ label {
+    color: #ffc700;
+  }
+  .rate:not(:checked) > label:hover,
+  .rate:not(:checked) > label:hover ~ label {
+    color: #ffdc5c;
+  }
+  .rate > input:checked + label:hover,
+  .rate > input:checked + label:hover ~ label,
+  .rate > input:checked ~ label:hover,
+  .rate > input:checked ~ label:hover ~ label,
+  .rate > label:hover ~ input:checked ~ label {
+    color: #ffc700;
+  }
+  

@@ -3,451 +3,357 @@
 {% load static %}
 
 {% block meta %}
+<!-- Page Title -->
 <title>Review</title>
-<style>
-*{
-    margin: 0px;
-    padding: 0px;
-    font-family: poppins;
-    box-sizing: border-box;
-}
-#btn-div{
-    display: flex;
-    justify-content: center;
-}
-a{
-    text-decoration: none;
-}
-#testimonials{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width:100%;
-}
-.testimonial-heading{
-    letter-spacing: 1px;
-    margin: 30px 0px;
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.testimonial-heading h1{
-    font-size: 2.2rem;
-    font-weight: 500;
-    background-color: #202020;
-    color: #ffffff;
-    padding: 10px 20px;
-}
-.testimonial-heading span{
-    font-size: 1.3rem;
-    color: #252525;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-.testimonial-box-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width:100%;
-}
-.testimonial-box{
-    width:500px;
-    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 15px;
-    cursor: pointer;
-}
-.profile-img{
-    width:50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px;
-}
-.profile-img img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-}
-.profile{
-    display: flex;
-    align-items: center;
-}
-.name-user{
-    display: flex;
-    flex-direction: column;
-}
-.name-user strong{
-    color: #3d3d3d;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-}
-.name-user span{
-    color: #979797;
-    font-size: 0.8rem;
-}
-.reviews{
-    color: #f9d71c;
-}
-.box-top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.client-comment p{
-    font-size: 0.9rem;
-    color: #4b4b4b;
-}
-.testimonial-box:hover{
-    transform: translateY(-10px);
-    transition: all ease 0.3s;
-}
- 
-@media(max-width:1060px){
-    .testimonial-box{
-        width:45%;
-        padding: 10px;
-    }
-}
-@media(max-width:790px){
-    .testimonial-box{
-        width:100%;
-    }
-    .testimonial-heading h1{
-        font-size: 1.4rem;
-    }
-}
-@media(max-width:340px){
-    .box-top{
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-    }
-    .reviews{
-        margin-top: 10px;
-    }
-}
-::selection{
-    color: #ffffff;
-    background-color: #252525;
-}
-.rate {
-    float: left;
-    text-align: center;
-    font-size: 2em;
-}
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-}
-.rate:not(:checked) > label {
-    float: right;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    color:#ccc;
-}
-.rate > input:checked ~ label {
-    color: #ffc700;    
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #ffdc5c;  
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #ffc700;
-}
 
-.background_home {
-  margin-top: -2vh;
-  background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0));
-  background-repeat: no-repeat;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+<!-- External CSS -->
+<link rel="stylesheet" href="{% static 'css/styleReview.css' %}" />
 
-}
-
-.content p{
-  font-weight: 600;
-  font-size: min(8vw, 30px);
-  -webkit-text-stroke: 1px #fff;
-  color: transparent;
-  text-align: left;
-  margin-left:20px;
-  margin-top:0px;
-  
-}
-@keyframes backcolor{
-  100%{
-      background-position: 0 0;
-  }
-}
-.content a{
-  text-decoration: none;
-  display: inline-block;
-  color: #fff;
-  font-size: min(5vw, 24px);
-  border: 2px solid #fff;
-  padding: min(14px, 2vh) min(70px, 12vw);
-  border-radius: 50px;
-  margin-top: 20px;
-}
-.videobg{
-  position:absolute;
-  object-fit: contain;
-  bottom: 0;
-  z-index: -1;
-}
-
-.header-row{
-    flex-basis:50%;
-     
-}
-
-#header-title{
-    font-size:100px;
-}
-
-button{
-    width:180px;
-    color:#000;
-    font-size: 12px;
-    padding:12px 0;
-    background:#fff;
-    border:0;
-    border-radius:20px;
-    outline: none;
-    margin-top:30px;
-}
-.review-header {
-    color: white;
-}
-
-</style>
-<!-- untuk impor style, font ke djongo, utk styling(supaya bisa pake css) -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, intial-scale=1.0">
-<title>Testimonial HTML</title>
-<!--Stylesheet--------------------------->
-<link rel="stylesheet" href="css/style.css"/>
-<!--Fav-icon------------------------------>
-<link rel="shortcut icon" href="images/fav-icon.png"/>
-<!--poppins-font-family------------------->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<!--using-Font-Awesome-------------------->
+<!-- Fonts / Icons -->
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+  rel="stylesheet"
+/>
 <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-</head>
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<!-- Responsive Meta -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 {% endblock meta %}
+
 {% block content %}
+<!-- Background Section with Video -->
 <div class="background_home">
-    <video autoplay loop muted plays-inline class="videobg">
-        <source src="/static/img/orangevideobg.mp4" type="video/mp4">
-    </video>
-    <div class="row header-row">
-        <div class="col">
-            <h1 id="header-title" class="review-header">Review</h1>
-            <p class="review-header"> Page for Ariculture user give some advice about this web for future development
-            </p>
-            <a href="#testimonials"><button type="button" >Explore </button></a>
-        </div>
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    preload="metadata"
+    class="videobg"
+  >
+    <source src="{% static 'img/bgbg.mp4' %}" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+  <div class="row header-row">
+    <div class="col">
+      <h1 id="header-title" class="review-header">Review</h1>
+      <p class="review-header">
+        Page for AgroSphere user give some advice about this web for future
+        development
+      </p>
+      <a href="#testimonials">
+        <button type="button">Explore</button>
+      </a>
     </div>
+  </div>
 </div>
 
-<!-- untuk button -->
+<!-- "Give Review" Button -->
 <div id="btn-div" style="margin-top: 5vh">
-    <button data-bs-toggle="modal" data-bs-target="#modal" style="width:20%; padding:2%;" class="btn btn-light" >
-        <h5 class="h5" style="color: black; text-align: center;">Give Review</h5>
-    </button>
+  <!-- Darker gray border for better visibility -->
+  <button
+    data-bs-toggle="modal"
+    data-bs-target="#modal"
+    style="
+      width: 20%;
+      padding: 2%;
+      border: 1px solid #888;
+    "
+    class="btn btn-light"
+  >
+    <h5 class="h5" style="color: black; text-align: center;">Give Review</h5>
+  </button>
 </div>
-  <!-- untuk form give review -->
-  <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog rounded-10">
-      <div class="modal-content bg-light">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5 w-100 text-center">Review</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="form" method="POST" action="">
-            {% csrf_token %}
-          <table><tr><td>
-            <!-- <div id="btn-div"> untuk kasih bintang -->
-                <div class="form-outline form-white mb-4 rate">
-                        <input type="radio" id="star5" name="rating" value="5" />
-                        <label for="star5" title="text"><i class="fas fa-star"></i></label>
-                        <input type="radio" id="star4" name="rating" value="4" />
-                        <label for="star4" title="text"><i class="fas fa-star"></i></label>
-                        <input type="radio" id="star3" name="rating" value="3" />
-                        <label for="star3" title="text"><i class="fas fa-star"></i></label>
-                        <input type="radio" id="star2" name="rating" value="2" />
-                        <label for="star2" title="text"><i class="fas fa-star"></i></label>
-                        <input type="radio" id="star1" name="rating" value="1" />
-                        <label for="star1" title="text"><i class="fas fa-star"></i></label>
-                </div>
-            </div>
-        </td></tr>
-          
-        <!-- untuk give comment review -->
-            <tr><td><div class="form-outline form-white mb-4">
-              <textarea id="review_text" placeholder="Comment" name="review_text" cols="50" rows="5" required="" class="form-control form-control-lg" spellcheck="false" ></textarea>
-            </div></td></tr>
-          </table>
-        </div>
-        <!-- untuk button dibawah modal -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button data-bs-dismiss="modal" class="btn btn-outline-dark btn-lg px-5" type="submit" value="Create!" id="create">Submit</button>
+
+<!-- Modal for submitting a new review -->
+<div
+  class="modal fade"
+  id="modal"
+  tabindex="-1"
+  aria-labelledby="modalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog rounded-10">
+    <div class="modal-content bg-light">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 w-100 text-center">Review</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="form" method="POST" action="">
+          {% csrf_token %}
+
+          <!-- Container for star rating (snippet approach) -->
+          <div style="text-align: center; margin-bottom: 1rem;">
+            <!-- 5 clickable stars, each calls gfg(n) -->
+            <span onclick="gfg(1)" class="star">★</span>
+            <span onclick="gfg(2)" class="star">★</span>
+            <span onclick="gfg(3)" class="star">★</span>
+            <span onclick="gfg(4)" class="star">★</span>
+            <span onclick="gfg(5)" class="star">★</span>
+            <!-- Display rating info -->
+            <h5 id="output" style="margin-top: 0.5rem;">Rating is: 0/5</h5>
+            <!-- Hidden input to store chosen rating -->
+            <input type="hidden" id="rating-value" name="rating" value="0" />
+          </div>
+
+          <!-- Textarea for comment -->
+          <div class="form-outline form-white mb-4">
+            <textarea
+              id="review_text"
+              placeholder="Comment"
+              name="review_text"
+              cols="50"
+              rows="5"
+              required
+              class="form-control form-control-lg"
+              spellcheck="false"
+            ></textarea>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              data-bs-dismiss="modal"
+              class="btn btn-outline-dark btn-lg px-5"
+              type="submit"
+              value="Create!"
+              id="create"
+            >
+              Submit
+            </button>
+          </div>
         </form>
-        </div>
       </div>
     </div>
   </div>
-
-<br>
-
-
-<!-- bagian bawah untuk lait comment yang udah diberikan -->
-<section id="testimonials" style="margin-bottom: 50px">
-    <div class="testimonial-heading">
-        <span>Comments</span>
-        <h1>Clients Says</h1>
-    </div>
-    <div class="testimonial-box-container"></div>
-</section>
-<div id="btn-div">
-    <button id="show-more" style="text-decoration: underline;border:1px solid rgb(255, 255, 255, 0); background-color: transparent; margin-bottom: 8vh;">
-        Show More
-    </button>
 </div>
 
-<!-- untuk import functon dari google (ajax) -->
+<!-- Section for displaying the reviews -->
+<section id="testimonials" style="margin-bottom: 50px">
+  <div class="testimonial-heading">
+    <span>Comments</span>
+    <h1>Clients Says</h1>
+  </div>
+  <div class="testimonial-box-container"></div>
+</section>
+
+<!-- "Show More" button -->
+<div id="btn-div">
+  <button
+    id="show-more"
+    style="
+      text-decoration: underline;
+      border: 1px solid rgba(255, 255, 255, 0);
+      background-color: transparent;
+      margin-bottom: 8vh;
+    "
+  >
+    Show More
+  </button>
+</div>
+
+<!-- jQuery for AJAX -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <script>
-    // inisialisasi count
-    let revCnt = 0
-    const reviewBox = function(user, rating, date, review_text) {
-        // fas = bintang yg ke isi, far bintang yang tdk ke isi
-        const star1 = rating >= 1 ? "fas" : "far"  
-        const star2 = rating >= 2 ? "fas" : "far"
-        const star3 = rating >= 3 ? "fas" : "far"
-        const star4 = rating >= 4 ? "fas" : "far"
-        const star5 = rating >= 5 ? "fas" : "far"
-        // untuk generate card
-        // untuk tunjukin nama, bintang di card hasil comment nya
-        return `<div class="testimonial-box">
-  <div class="box-top">
-      <div class="profile">
-          <div class="profile-img">
-              <img src="https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="Image" height="10" width="10" />
-          </div>
-      </div>
-  </div>
-  <div class="client-comment" style="word-break: break-all;">
-    <div class="reviews">
-          <i class="${star1} fa-star"></i>
-          <i class="${star2} fa-star"></i>
-          <i class="${star3} fa-star"></i>
-          <i class="${star4} fa-star"></i>
-          <i class="${star5} fa-star"></i>
-      </div>
-      <div class="name-user">
-              <strong>${user}</strong>
-              <span>${date}</span>
-          </div>
-      <p>${review_text}</p>
-  </div>
-</div>`
-    }
+  // This variable will count how many reviews have been displayed
+  let revCnt = 0;
 
-    $(document).ready(function(){
-        $.get("{% url 'review:show_json' %}", function(data) { // dapetin data dr json, trus di parse
-            var users = JSON.parse("{{ users|escapejs }}");
-        
-            console.log(data.length)
-            console.log(revCnt)
-            cnt4 = revCnt + 4
-            for (let i = revCnt; i < Math.min(data.length, cnt4); i++){ // ngeload datanya
-                console.log(i)
-                const review = data[data.length - i - 1]
-                $(".testimonial-box-container").append(reviewBox( // untuk add ke dalem box supaya bisa di show
-                    users[review.fields.user],
-                    review.fields.rating,
-                    review.fields.date,
-                    review.fields.review_text
-                ))
-                revCnt += 1
-            }
-        });
-      $("#show-more").click(function(){ 
-        $.get("{% url 'review:show_json' %}", function(data) {
-            var users = JSON.parse("{{ users|escapejs }}");
+  // This function will hold the current rating chosen in the modal
+  // and color the stars accordingly
+  function gfg(star) {
+    document.getElementById("rating-value").value = star;
+    document.getElementById("output").innerHTML = "Rating is: " + star + "/5";
 
-            console.log(data.length)
-            console.log(revCnt)
-            cnt4 = revCnt + 4
-            for (let i = revCnt; i < Math.min(data.length, cnt4); i++){ // looping dari jumlah yang udah ditampilin sampe +4
-                console.log(i)
-                const review = data[data.length - i - 1]
-                $(".testimonial-box-container").append(reviewBox(
-                    users[review.fields.user],
-                    review.fields.rating,
-                    review.fields.date,
-                    review.fields.review_text
-                ))
-                revCnt += 1
-            }
-            if (revCnt == data.length){
-                $("#show-more").text("You've reached the end!")
-            }
-        });
-      })
-      $("#modal").on("hidden.bs.modal", function() { // habis is modalnya di reset ke kosong
-    $("#modal").find("#form").trigger("reset")
-   })
-      $("#create").on('click', function(e) {  // habis submit formnya bakalan nambahin/ nampilin 1 card yg baru di isi
-        e.preventDefault()
-        $.post("{% url 'review:create_review' %}",
-            {
-            rating: $("input[type='radio'][name='rating']:checked").val(),
-            review_text: $('#review_text').val(),
-            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-            },
-            function(data, status){
-            $.ajax({ // nambahin 1 review ke dalam review boxnya
-                url: "{% url 'review:show_json' %}", 
-                method: 'GET',
-                dataType: 'json',
-                success: function(data) {
-                    const review = data[data.length - 1]
-                    $(".testimonial-box-container").prepend(reviewBox(
-                                "{{ user.username}}",
-                                review.fields.rating,
-                                review.fields.date,
-                                review.fields.review_text
-                            ))
-                }
-            }) 
-        });
-    })
-
+    let stars = document.querySelectorAll(".modal-body .star");
+    stars.forEach((s) => {
+      s.classList.remove("one", "two", "three", "four", "five");
     });
-    
+
+    for (let i = 0; i < star; i++) {
+      if (star === 1) {
+        stars[i].classList.add("one");
+      } else if (star === 2) {
+        stars[i].classList.add("two");
+      } else if (star === 3) {
+        stars[i].classList.add("three");
+      } else if (star === 4) {
+        stars[i].classList.add("four");
+      } else if (star === 5) {
+        stars[i].classList.add("five");
+      }
+    }
+  }
+
+  // For displaying rating on each review card with snippet color logic
+  function getStarHTML(rating) {
+    let starHTML = "";
+    let colorClass = "";
+    if (rating == 1) colorClass = "one";
+    else if (rating == 2) colorClass = "two";
+    else if (rating == 3) colorClass = "three";
+    else if (rating == 4) colorClass = "four";
+    else if (rating == 5) colorClass = "five";
+
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        starHTML += `<span class="star ${colorClass}">★</span>`;
+      } else {
+        starHTML += `<span class="star">★</span>`;
+      }
+    }
+    return starHTML;
+  }
+
+  // This function returns the HTML for each review card
+  const reviewBox = function (user, rating, date, review_text) {
+    // Random profile image from org1..org13
+    const randomIndex = Math.floor(Math.random() * 13) + 1;
+    const profileImagePath = "/static/img/org" + randomIndex + ".png";
+
+    // Build star HTML
+    let starHTML = getStarHTML(rating);
+
+    // Parse date to include time (HH:MM)
+    // If the field is only a date, time will be 00:00
+    let dateObj = new Date(date);
+    // We'll format it as DD/MM/YYYY HH:MM
+    let options = {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    };
+    let localTime = dateObj.toLocaleString("en-GB", options);
+
+    return `
+      <div class="card-custom">
+        <!-- Top (colored) section -->
+        <div class="card-top">
+          <div class="left-side">
+            <div class="profile-img">
+              <img src="${profileImagePath}" alt="Profile Image" />
+            </div>
+            <div class="user-info">
+              <strong>${user}</strong>
+            </div>
+          </div>
+          <div class="right-side">
+            ${starHTML}
+          </div>
+        </div>
+        <!-- Bottom (white) section -->
+        <div class="card-bottom">
+          <p>${review_text}</p>
+          <p class="feedback-note">Thank you for your feedback</p>
+          <!-- Date at the bottom right -->
+          <div class="date-right" style = "text-align: right; "">${localTime}</div>
+        </div>
+      </div>
+    `;
+  };
+
+  $(document).ready(function () {
+    // First load: show only the first 8 reviews
+    $.get("{% url 'review:show_json' %}", function (data) {
+      var users = JSON.parse("{{ users|escapejs }}");
+      let cnt8 = revCnt + 8; // We'll load 8 reviews initially
+      for (let i = revCnt; i < Math.min(data.length, cnt8); i++) {
+        const review = data[data.length - i - 1];
+        $(".testimonial-box-container").append(
+          reviewBox(
+            users[review.fields.user],
+            review.fields.rating,
+            review.fields.date,
+            review.fields.review_text
+          )
+        );
+        revCnt += 1;
+      }
+    });
+
+    // "Show More" button: load next 8 reviews
+    $("#show-more").click(function () {
+      $.get("{% url 'review:show_json' %}", function (data) {
+        var users = JSON.parse("{{ users|escapejs }}");
+        let cnt8 = revCnt + 8;
+        for (let i = revCnt; i < Math.min(data.length, cnt8); i++) {
+          const review = data[data.length - i - 1];
+          $(".testimonial-box-container").append(
+            reviewBox(
+              users[review.fields.user],
+              review.fields.rating,
+              review.fields.date,
+              review.fields.review_text
+            )
+          );
+          revCnt += 1;
+        }
+        if (revCnt === data.length) {
+          $("#show-more").text("You've reached the end!");
+        }
+      });
+    });
+
+    // Reset the form (and stars) when modal is closed
+    $("#modal").on("hidden.bs.modal", function () {
+      $("#modal").find("#form").trigger("reset");
+      $("#output").text("Rating is: 0/5");
+      $("#rating-value").val("0");
+      let stars = document.querySelectorAll(".modal-body .star");
+      stars.forEach((s) => {
+        s.classList.remove("one", "two", "three", "four", "five");
+      });
+    });
+
+    // Submit a new review
+    $("#create").on("click", function (e) {
+      e.preventDefault();
+      // Get rating from the hidden input
+      const rating = $("#rating-value").val();
+      const review_text = $("#review_text").val();
+
+      $.post(
+        "{% url 'review:create_review' %}",
+        {
+          rating: rating,
+          review_text: review_text,
+          csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        },
+        function (data, status) {
+          // After success, fetch the latest data
+          $.ajax({
+            url: "{% url 'review:show_json' %}",
+            method: "GET",
+            dataType: "json",
+            success: function (allData) {
+              const latestReview = allData[allData.length - 1];
+              $(".testimonial-box-container").prepend(
+                reviewBox(
+                  "{{ user.username }}",
+                  latestReview.fields.rating,
+                  latestReview.fields.date,
+                  latestReview.fields.review_text
+                )
+              );
+            },
+          });
+        }
+      );
+    });
+  });
 </script>
 {% endblock content %}
