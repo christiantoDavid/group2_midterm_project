@@ -97,10 +97,15 @@ WSGI_APPLICATION = 'project_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+            'HOST':'ep-broad-hill-a1pn790f.ap-southeast-1.pg.koyeb.app',
+            'USER':'koyeb-adm',
+            'PASSWORD':'npg_Xibr3uVqt9Uj',
+            'NAME':'koyebdb',
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'PORT':'5432'
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
